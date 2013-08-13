@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <% unless @event.nil? %>
+      <em>Error:</em>
+      <ul class ='errors'>
+        <li><%= "Organizer's name #{@event.errors[:organizer_name].pop}" unless @event.errors[:organizer_name].empty? %></li>
+        <li><%= "Organizer's #{@event.errors[:organizer_email].pop}" unless @event.errors[:organizer_email].empty? %></li>
+        <li><%= "Title #{@event.errors[:title].pop}" unless @event.errors[:title].empty? %></li>
+        <li><%= "Date #{@event.errors[:date].pop}" unless @event.errors[:date].empty? %></li>
+      </ul>
+    <% end %>
+  </div>
+
+
+  <form action='/events/create' method= 'post'>
+    <input type='text' name='organizer_name' placeholder="organizer's name"><br>
+    <input type='text' name='organizer_email' placeholder="organizer's email"><br>
+    <input type='text' name='title' placeholder="event title"><br>
+    <input type='date' name='date'>
+    <input type='submit' value='submit'> 
+  </form>
+</div>
