@@ -18,7 +18,7 @@ post '/events/create' do
   if event.errors.any?
     erb :register_event
   else
-    "no errors!"
+    redirect '/'
   end
   #TODO IMPLEMENT ME
 end
